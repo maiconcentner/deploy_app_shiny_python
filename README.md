@@ -25,7 +25,7 @@ Adicione a linha que aponta para o seu interpretador Python ou ambiente virtual.
 
 ```bash
 # Use Python 3
-$ python /usr/bin/python3;
+python /usr/bin/python3;
 ```
 Ou, se estiver usando um ambiente virtual:
 ```bash
