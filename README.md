@@ -7,10 +7,10 @@ Este guia fornece instruções passo a passo para realizar o deploy de um aplica
 Certifique-se de que seu sistema está atualizado antes de começar.
 
 ```bash
-$ sudo apt-get update
-$ sudo apt-get install gdebi-core
-$ wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.16.958-amd64.deb
-$ sudo gdebi shiny-server-1.5.16.958-amd64.deb
+sudo apt-get update
+sudo apt-get install gdebi-core
+wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.16.958-amd64.deb
+sudo gdebi shiny-server-1.5.16.958-amd64.deb
 ```
 ## 2. Configurar o Servidor
 
