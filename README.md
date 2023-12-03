@@ -19,7 +19,7 @@ $ sudo gdebi shiny-server-1.5.16.958-amd64.deb
 1. Abra o arquivo de configuração do Shiny Server com um editor de texto. Utilizarei o nano, mas você pode escolher qualquer editor de sua preferência.
 
 ```bash
-$ sudo nano /etc/shiny-server/shiny-server.conf
+sudo nano /etc/shiny-server/shiny-server.conf
 ```
 Adicione a linha que aponta para o seu interpretador Python ou ambiente virtual. Supondo que você esteja usando o Python 3, a linha pode ser algo como:
 
@@ -30,7 +30,7 @@ python /usr/bin/python3;
 Ou, se estiver usando um ambiente virtual:
 ```bash
 # Use o ambiente virtual
-$ python /srv/shiny-server/python39-venv/bin/python;
+python /srv/shiny-server/python39-venv/bin/python;
 ```
 Salve e saia do editor (no nano, você pode fazer isso pressionando Ctrl + X, seguido de Y, e depois Enter).
 O resultado deve se parecer com algo assim:
@@ -69,12 +69,12 @@ Lembre-se de ajustar as configurações conforme necessário, dependendo do seu 
 Após modificar o arquivo de configuração (/etc/shiny-server/shiny-server.conf) no passo anterior, primeiro, reinicie o servidor:
 
 ```bash
-$ sudo systemctl restart shiny-server
+sudo systemctl restart shiny-server
 ```
 Agora, verifique o status do servidor:
 
 ```bash
-$ sudo systemctl status shiny-server
+sudo systemctl status shiny-server
 ```
 Se não aparecer nenhum erro, está tudo certo! O servidor está funcionando.
 
@@ -82,7 +82,7 @@ Se ocorrer algum erro, consulte o log gerado para identificar a causa do problem
 
 Para verificar o conteúdo do log, digite no terminal:
 ```bash
-$ cat /var/log/shiny-server/shiny-server.log
+cat /var/log/shiny-server/shiny-server.log
 ```
 Isso exibirá o conteúdo do arquivo de log, onde você poderá encontrar informações sobre possíveis erros ou problemas. Ajuste as configurações conforme necessário e repita os passos até que o servidor esteja funcionando corretamente.
 
@@ -123,11 +123,11 @@ Recomendo a instalação do Docker para facilitar a gestão e isolamento de ambi
 1. Atualize o índice de pacotes:
 
 ```bash
-$ sudo apt-get update
+sudo apt-get update
 ```
 Instale as dependências necessárias para permitir o uso de repositórios via HTTPS:
 ```bash
-$ sudo apt-get install -y \
+sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -136,32 +136,32 @@ $ sudo apt-get install -y \
 ```
 Adicione a chave GPG oficial do Docker:
 ```bash
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 ```
 Adicione o repositório Docker:
 ```bash
-$ echo "deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 Instale o Docker Engine:
 ```bash
-$ sudo apt-get update
-$ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 ```
 Verifique a instalação:
 ```bash
-$ sudo docker --version
+sudo docker --version
 ```
 Caso surja algum erro durante a instalação, você pode fornecer o erro ao Chat GPT para obter ajuda na resolução.
 
 Se desejar refazer a instalação do Docker utilizando um tutorial específico, desfaça o processo com os seguintes comandos:
 
 ```bash
-$ sudo apt-get purge -y docker-ce docker-ce-cli containerd.io
-$ sudo rm -rf /var/lib/docker
-$ sudo rm -rf /etc/docker
-$ sudo rm -rf /usr/share/keyrings/docker-archive-keyring.gpg
-$ sudo rm /etc/apt/sources.list.d/docker.list
-$ sudo apt-get purge -y apt-transport-https ca-certificates curl gnupg
+sudo apt-get purge -y docker-ce docker-ce-cli containerd.io
+sudo rm -rf /var/lib/docker
+sudo rm -rf /etc/docker
+sudo rm -rf /usr/share/keyrings/docker-archive-keyring.gpg
+sudo rm /etc/apt/sources.list.d/docker.list
+sudo apt-get purge -y apt-transport-https ca-certificates curl gnupg
 ```
 Esses comandos desinstalarão o Docker e removerão seus arquivos de configuração e chaves GPG.
 
@@ -170,14 +170,14 @@ Esses comandos desinstalarão o Docker e removerão seus arquivos de configuraç
 Antes de tudo, reinicie o servidor para que ele reconheça o aplicativo que você moveu para o diretório do servidor:
 
 ```bash
-$ sudo systemctl restart shiny-server
-$ sudo systemctl status shiny-server
+sudo systemctl restart shiny-server
+sudo systemctl status shiny-server
 ```
 Em caso de problemas, verifique os logs:
 
 ```bash
-$ cat /var/log/shiny-server.log
-$ cat /var/log/shiny-server/*.log
+cat /var/log/shiny-server.log
+cat /var/log/shiny-server/*.log
 ```
 Esses logs geralmente fornecem informações úteis para diagnosticar problemas.
 
@@ -185,20 +185,20 @@ Agora, crie sua conta no `shinyapps.io` (se ainda não tiver) e siga os passos f
 
 Instale o pacote `rsconnect`:
 ```bash
-$ pip install rsconnect-python --upgrade
+pip install rsconnect-python --upgrade
 ```
 O restante do processo é mais fácil de seguir diretamente no site do `shinyapps.io`, pois lá você encontrará seu token e chave para o deploy. Basta copiar e colar no seu terminal.
 
 Depois, vá para o diretório do seu projeto:
 
 ```bash
-$ cd /srv/shiny-server/caminho-do-seu-projeto
+cd /srv/shiny-server/caminho-do-seu-projeto
 ```
 É importante que todos os arquivos necessários para seu aplicativo funcionar estejam neste diretório.
 
 Teste seu aplicativo:
 ```bash
-$ shiny run app.py
+shiny run app.py
 ```
 Acesse o endereço que apareceu no terminal, algo como:
 
@@ -208,7 +208,7 @@ Se tudo estiver funcionando, seu aplicativo está pronto para ser publicado.
 
 Para fazer o deploy, utilize o seguinte comando (lembre-se de estar no diretório do `app.py` para executar o comando):
 ```bash
-$ rsconnect deploy shiny . --entrypoint app:app
+rsconnect deploy shiny . --entrypoint app:app
 ```
 Isso iniciará o processo de deploy do seu aplicativo para o `shinyapps.io`. Siga as instruções adicionais fornecidas durante o processo.
 
