@@ -219,7 +219,17 @@ https://shiny.posit.co/py/docs/deploy.html#rsconnect-deploy
 
 https://www.shinyapps.io/
 
+# Alguns erros que estavam occorrendo antes desta solucao
 
+Error: an error has occurred The application exited before accepting connections. Contact the author for more information.
+
+Error: Application deploymente failed with error: Unhanled Exception: Child Task 136034448 failed: Error building image: Build exited with non-zero status: 1
+
+Error: Quarto not found
+
+Failed to load module "xapp-gtk3-module"
+Stub sandbox ignoring command: /app/extra/nacl_helper
+ERROR:nacl_fork_delegate_linux.cc(312)] Bad NaCl helper startup ack (0 bytes)
 
 
 
