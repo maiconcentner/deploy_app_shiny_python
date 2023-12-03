@@ -212,10 +212,10 @@ rsconnect deploy shiny . --entrypoint app:app
 ```
 Isso iniciará o processo de deploy do seu aplicativo para o `shinyapps.io`. Siga as instruções adicionais fornecidas durante o processo.
 
-#Referencias:
-[1] https://docs.posit.co/shiny-server/
-[2] https://shiny.posit.co/py/docs/deploy.html#rsconnect-deploy
-[3] https://www.shinyapps.io/
+# Referencias:
+[1]https://docs.posit.co/shiny-server/
+[2]https://shiny.posit.co/py/docs/deploy.html#rsconnect-deploy
+[3]https://www.shinyapps.io/
 
 
 
