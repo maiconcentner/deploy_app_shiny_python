@@ -219,7 +219,7 @@ https://shiny.posit.co/py/docs/deploy.html#rsconnect-deploy
 
 https://www.shinyapps.io/
 
-# Alguns erros que estavam occorrendo antes desta solucao
+# Alguns erros que estavam ocorrendo antes desta solucao
 
 Error: an error has occurred The application exited before accepting connections. Contact the author for more information.
 
